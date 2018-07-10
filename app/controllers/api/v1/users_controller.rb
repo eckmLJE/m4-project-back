@@ -6,10 +6,6 @@ module Api
         render json: User.includes(:events), include: ["events"]
       end
 
-      def show_user
-        render json: current_user
-      end
-
     end
   end
 end
