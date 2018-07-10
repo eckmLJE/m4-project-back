@@ -14,7 +14,7 @@ module Api
       private
 
       def event_params
-        params.require(:event).permit(:id, :name, :venue, :date)
+        params.require(:event).permit(:id, :username, :venue, :date)
       end
 
     end
