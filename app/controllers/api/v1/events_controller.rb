@@ -3,7 +3,7 @@ module Api
     class EventsController < ApplicationController
 
       def index
-        render json: Event.includes(:users), include: ["users"]
+        render json: Event.includes(:users, :comments), include: ["users", "comments"]
       end
 
       def create
