@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-bob = User.create(username: "Bob")
-td = Event.create(name: "Tenacious D")
+bob = User.create(username: "bob", password: "bob", email: "bob@flatiron.com")
+td = Event.create(name: "Tenacious D", venue: "the moon", date: "2018-08-21")
 
 td.users << bob

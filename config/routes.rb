@@ -7,4 +7,7 @@ Rails.application.routes.draw do
       resources :events
     end
   end
+
+  post '/login', to: 'auth#login'
+  get '/user', to: 'users#show_user'
 end
