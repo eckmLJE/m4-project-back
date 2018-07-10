@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::API
 
-    include ActionController::HttpAuthentication::Token::ControllerMethods
+  include ActionController::HttpAuthentication::Token::ControllerMethods
 
-#   before_action :authenticate
+  # before_action :authenticate
 
   private
 
@@ -23,12 +23,12 @@ class ApplicationController < ActionController::API
   end
 
   def encode(payload)
-    JWT.encode(payload, ENV["HMAC_SECRET"], 'HS256')
+    JWT.encode(payload, Rails.application.secrets.hmac_secret, 'HS256')
   end
 
   # will raise an error if the token is not valid
   def decode(encrypted_token)
-    JWT.decode(encrypted_token, ENV["HMAC_SECRET"], true, { algorithm: 'HS256' })
+    JWT.decode(encrypted_token, Rails.application.secrets.hmac_secret, true, { algorithm: 'HS256' })
   end
 
 end

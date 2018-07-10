@@ -1,6 +1,6 @@
 class AuthController < ApplicationController
 
-    skip_before_action :authenticate, only: [:login]
+    # skip_before_action :authenticate, only: [:login]
   
     # post to /login with { username: 'some name', password: 'some password' }
     # if valid, respond with jwt token
@@ -8,6 +8,7 @@ class AuthController < ApplicationController
     def login
       user = User.find_by(username: params[:username])
       if user && user.authenticate(params[:password])
+        byebug
         # send back the token
         # token should be a JWT token
         token = encode({user_id: user.id})
