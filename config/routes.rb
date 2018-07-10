@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   post '/login', to: 'auth#login'
   get '/user', to: 'users#show_user'
+  post 'api/v1/updateplan', to: 'api/v1/events#add_user'
+
 end
