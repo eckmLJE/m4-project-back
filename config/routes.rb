@@ -6,11 +6,13 @@ Rails.application.routes.draw do
       resources :users
       resources :events
       resources :comments
+      post 'updateplan', to: 'events#add_user'
     end
   end
 
   post '/login', to: 'auth#login'
   get '/user', to: 'users#show_user'
-  post 'api/v1/updateplan', to: 'api/v1/events#add_user'
+  
+  
 
 end
